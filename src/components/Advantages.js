@@ -3,7 +3,7 @@ import { Grid, Icon } from 'semantic-ui-react';
 
 export default function Advantages() {
 	return (
-		<div style={{ margin: '40px 40px', textAlign: 'center' }}>
+		<div style={{ margin: '2rem', textAlign: 'center' }}>
 			<h2>Designed Especially For You</h2>
 			<Grid stackable>
 				<Grid.Row>

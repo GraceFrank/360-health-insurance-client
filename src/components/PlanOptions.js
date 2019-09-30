@@ -3,7 +3,7 @@ import { Grid, Image, Button } from 'semantic-ui-react';
 
 export default function PlanOptions() {
 	return (
-		<div style={{ margin: '40px 40px', textAlign: 'center' }}>
+		<div style={{ margin: '2rem', textAlign: 'center', backgroundColor: '#fcfcfd' }}>
 			<h2 style={{ marginBottom: '40px' }}>A Plan That Suites You</h2>
 			<Grid stackable>
 				<Grid.Row>

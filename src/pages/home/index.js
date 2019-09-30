@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container } from 'semantic-ui-react';
 import Logo from '../../commons/Logo';
 import HeroBanner from '../../components/HeroBanner';
 import Advantages from '../../components/Advantages';
@@ -9,11 +8,9 @@ const index = () => {
 	return (
 		<div>
 			<Logo />
-			<Container style={{ backgroundColor: '#fcfcfd' }}>
-				<HeroBanner></HeroBanner>
-				<Advantages></Advantages>
-				<PlanOptions></PlanOptions>
-			</Container>
+			<HeroBanner></HeroBanner>
+			<Advantages></Advantages>
+			<PlanOptions></PlanOptions>
 		</div>
 	);
 };
