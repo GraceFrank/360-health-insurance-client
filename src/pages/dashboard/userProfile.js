@@ -5,8 +5,8 @@ import BillCard from '../../components/billCard';
 import AccountCard from '../../components/accountCard';
 import UserProfileContext from '../../utils/UserProfileContext';
 
-const UserProfile = ({ user, subscription, hospital, plan }) => {
-  // const { user, subscription, hospital, plan } = useContext(UserProfileContext);
+const UserProfile = () => {
+  const { user, subscription, hospital, plan } = useContext(UserProfileContext);
 
   return (
     <Container>
