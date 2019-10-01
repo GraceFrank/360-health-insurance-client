@@ -3,7 +3,7 @@ import styles from 'styled-components';
 import Logo from '../../commons/Logo';
 import { CustomInput, CustomButton } from '../../components/index';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import axiosQueries from '../../queries/';
 
 const Login = ({ inputFields }) => {
   const [fields, setField] = useState({ email: '', password: '' });
@@ -16,17 +16,15 @@ const Login = ({ inputFields }) => {
 
   const handleSubmit = async event => {
     event.preventDefault();
-    try {
-      const response = await axios.post(
-        `https://health-insurance-backend.herokuapp.com/api/login`,
-        {
-          fields
-        }
-      );
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
+    await axiosQueries.Post(`login/`, fields)
+      .then(res => {
+
+      })
+      .catch(error => {
+
+      });
+
+
   };
 
   return (

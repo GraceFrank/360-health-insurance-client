@@ -2,6 +2,7 @@ import React from 'react';
 import { Modal } from 'semantic-ui-react';
 import PaystackButton from 'react-paystack';
 import { withRouter } from 'react-router-dom';
+import axiosQueries from '../queries/';
 
 const PayStackModal = ({ amount, openModal, payload, history }) => {
   console.log('payloadpayloadpayloadpayload', { payload });
@@ -31,13 +32,17 @@ const PayStackModal = ({ amount, openModal, payload, history }) => {
     lga,
     age,
     gender,
-    address
+    address,
+    town: 'default',
   };
   const callback = async response => {
-    const user = await fetch('https://health-insurance-backend.herokuapp.com/api/users', {
-      method: 'POST',
-      body: JSON.stringify(userPayload)
-    });
+    const user = await axiosQueries.Post('users/', userPayload)
+      .then(res => {
+
+      })
+      .catch(error => {
+
+      })
 
     // const planPayLoad = {
     //   userId: user._id,

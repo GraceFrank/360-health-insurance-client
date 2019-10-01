@@ -1,0 +1,1 @@
+export const API_BASE = "https://health-insurance-backend.herokuapp.com/api/";
