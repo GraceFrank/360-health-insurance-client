@@ -5,8 +5,6 @@ import { withRouter } from 'react-router-dom';
 import axiosQueries from '../queries/';
 
 const PayStackModal = ({ amount, openModal, payload, history }) => {
-  console.log('payloadpayloadpayloadpayload', { payload });
-
   const {
     email,
     password,
@@ -18,6 +16,7 @@ const PayStackModal = ({ amount, openModal, payload, history }) => {
     age,
     gender,
     address,
+    town,
     paymentType,
     plan
   } = payload;
@@ -33,30 +32,21 @@ const PayStackModal = ({ amount, openModal, payload, history }) => {
     age,
     gender,
     address,
-    town: 'default',
+    town
   };
   const callback = async response => {
-    const user = await axiosQueries.Post('users/', userPayload)
-      .then(res => {
+    const {
+      data: { data }
+    } = await axiosQueries.Post('users/', userPayload);
 
-      })
-      .catch(error => {
+    const planPayLoad = {
+      userId: data._id,
+      planId: plan,
+      price: `${amount}`,
+      paymentType
+    };
 
-      })
-
-    // const planPayLoad = {
-    //   userId: user._id,
-    //   plainId: plan,
-    //   price: `${amount}`,
-    //   paymentType
-    // };
-
-    console.log({ user });
-
-    // const planSub = await fetch('https://health-insurance-backend.herokuapp.com/api/subs', {
-    //   method: 'POST',
-    //   body: JSON.stringify(planPayLoad)
-    // });
+    await axiosQueries.Post('subs/', planPayLoad);
 
     history.replace('login');
   };

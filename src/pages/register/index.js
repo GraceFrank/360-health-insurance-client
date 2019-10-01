@@ -46,7 +46,7 @@ export default function Register({ inputFields, selectFields }) {
     const name = target.name;
     fields[name] = target.value;
     if (target.value === 'monthly') amount = 1500;
-    if (target.value === 'quarterly') amount = 1500 * 3;
+    if (target.value === 'quaterly') amount = 1500 * 3;
     if (target.value === 'annually') amount = 1500 * 12;
 
     setButtonAction({ ...buttonAction, amount });
@@ -166,7 +166,7 @@ Register.defaultProps = {
   selectFields: {
     gender: ['female', 'male'],
     plan: ['individual', 'family'],
-    payment: ['monthly', 'quarterly', 'annually'],
+    payment: ['monthly', 'quaterly', 'annually'],
     LGA: ['YELGA', 'SILGA', 'KOLGA', 'SALGA', 'BALGA', 'OLGA', 'NLGA', 'ELGA']
   }
 };

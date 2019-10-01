@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import styles from 'styled-components';
 import Logo from '../../commons/Logo';
 import { CustomInput, CustomButton } from '../../components/index';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import axiosQueries from '../../queries/';
 
-const Login = ({ inputFields }) => {
+const Login = ({ inputFields, history }) => {
   const [fields, setField] = useState({ email: '', password: '' });
 
   const handleChange = ({ target }) => {
@@ -16,15 +16,17 @@ const Login = ({ inputFields }) => {
 
   const handleSubmit = async event => {
     event.preventDefault();
-    await axiosQueries.Post(`login/`, fields)
-      .then(res => {
+    const {
+      data: { data }
+    } = await axiosQueries.Post('login/', fields);
 
-      })
-      .catch(error => {
+    const { user, subscription, hospital, plan } = data.data;
+    const token = data['x-auth-token '];
 
-      });
-
-
+    history.push({
+      pathname: 'dashboard',
+      state: { user, subscription, hospital, plan }
+    });
   };
 
   return (
@@ -132,7 +134,7 @@ const ForgetPassword = styles.div`
 }
 `;
 
-export default Login;
+export default withRouter(Login);
 
 Login.defaultProps = {
   inputFields: [

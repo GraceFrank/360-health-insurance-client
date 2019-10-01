@@ -3,9 +3,11 @@ import { Route } from 'react-router-dom';
 import styles from 'styled-components';
 import SideBar from '../../components/sidebar';
 import UserProfile from './userProfile';
+import { withRouter } from 'react-router-dom';
+import UserProfileContext from '../../utils/UserProfileContext';
 
-const UserDashboard = ({ links, user }) => {
-  const { firstName } = user;
+const UserDashboard = ({ links, history }) => {
+  const { firstName } = history.location.state.user;
 
   const handClick = event => {
     console.log(event);
@@ -26,9 +28,11 @@ const UserDashboard = ({ links, user }) => {
           </div>
         </MainSectionHeader>
         <MainSectionBody>
-          <Route exact path="/dashboard" component={UserProfile} />
-          {/* <Route path="/dashboard/add" component={DesktopAddPost} /> */}
-          {/* <Route path="/dashboard/stats" component={DesktopStats} /> */}
+          <UserProfileContext.Provider value={history.location.state}>
+            <Route exact path="/dashboard" component={UserProfile} />
+            {/* <Route path="/dashboard/add" component={DesktopAddPost} /> */}
+            {/* <Route path="/dashboard/stats" component={DesktopStats} /> */}
+          </UserProfileContext.Provider>
         </MainSectionBody>
       </MainSection>
     </Container>
@@ -150,4 +154,4 @@ const MainSectionBody = styles.main`
   background-color: #f8f9fa;
 `;
 
-export default UserDashboard;
+export default withRouter(UserDashboard);

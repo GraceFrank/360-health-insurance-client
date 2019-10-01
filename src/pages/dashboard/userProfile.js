@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from 'styled-components';
 import UserProfileCard from './userProfileCard';
 import BillCard from '../../components/billCard';
 import AccountCard from '../../components/accountCard';
+import UserProfileContext from '../../utils/UserProfileContext';
 
-const UserProfile = ({ data }) => {
-  const { subscription, hospital, plan, user } = data;
+const UserProfile = () => {
+  const { user, subscription, hospital, plan } = useContext(UserProfileContext);
+
   return (
     <Container>
       <div className="user-profile-cards">
