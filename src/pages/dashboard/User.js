@@ -44,17 +44,17 @@ UserDashboard.defaultProps = {
     {
       name: 'my dashboard',
       path: '/dashboard',
-      icon: 'fas fa-blog'
+      icon: 'mdi mdi-view-dashboard'
     },
     {
       name: 'all hospitals',
       path: '/dashboard/hospitals',
-      icon: 'fab fa-readme'
+      icon: 'mdi mdi-hospital-marker'
     },
     {
       name: 'account',
       path: '/dashboard/account',
-      icon: 'fas fa-chart-bar'
+      icon: 'mdi mdi-account'
     }
   ],
   user: {

@@ -4,7 +4,7 @@ import styles from 'styled-components';
 
 const Logo = ({ tailSize, headSize, centerSize, padding, alignment }) => {
   return (
-    <Link to='/'>
+    <Link to="/">
       <Container padding={padding} alignment={alignment}>
         <LogoHolder>
           <OvalTail tailSize={tailSize} />
@@ -47,6 +47,17 @@ const OvalCenter = styles.div`
   height: ${props => `${props.centerSize}px`};
   border-radius: 100%;
   background: #fff;
+
+  &:after {
+    content: '';
+    display: inline-flex;
+    position: relative; 
+    width: 17px;
+    height: 17px;
+    right: 13px;
+    background: #fff;
+    transform: rotate(40deg)
+  }
 
 `;
 

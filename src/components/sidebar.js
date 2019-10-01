@@ -15,7 +15,7 @@ const SideBar = ({ links }) => {
         {links.map((link, i) => (
           <span className="icon-contanier" key={i}>
             <NavLink key={i} exact to={link.path} activeClassName="activeNav">
-              <i className="fab fa-readme" />
+              <i className={link.icon} style={{ fontSize: '25px' }} />
             </NavLink>
             <span>{link.name}</span>
           </span>
@@ -51,7 +51,8 @@ const SideBarIcons = styles.section`
  }
 
  a {
-      border: 1px black solid;
+    display: flex;
+    align-items: center;
       width: 25px;
       height: 25px;
       border-radius: 15px;
@@ -68,8 +69,10 @@ const SideBarIcons = styles.section`
       }
     }
 
-    .icon-contanier:hover,
-    a:hover {
+    .icon-contanier:hover {
+      a {
+        color: #fff;
+      }
       cursor: pointer;
       background: #0f7bc0;
       color: #fff;

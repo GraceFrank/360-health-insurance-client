@@ -5,8 +5,8 @@ import BillCard from '../../components/billCard';
 import AccountCard from '../../components/accountCard';
 import UserProfileContext from '../../utils/UserProfileContext';
 
-const UserProfile = () => {
-  const { user, subscription, hospital, plan } = useContext(UserProfileContext);
+const UserProfile = ({ user, subscription, hospital, plan }) => {
+  // const { user, subscription, hospital, plan } = useContext(UserProfileContext);
 
   return (
     <Container>
@@ -34,33 +34,31 @@ const Container = styles.div`
 `;
 
 UserProfile.defaultProps = {
-  data: {
-    user: {
-      firstName: 'Tolu',
-      lastName: 'James',
-      otherName: 'Doe',
-      phone: '1234313524677',
-      email: 'Tolu@gmail.com',
-      lga: 'YELGA',
-      town: 'Lurem pseum efio',
-      age: 57,
-      gender: 'male',
-      address: '781 Broome Street, Hollymead, Arizona'
-    },
-    subscription: {
-      paymentType: 'monthly',
-      price: 1500
-    },
-    hospital: {
-      type: 'public',
-      address: '781 Broome Street, Hollymead, Arizona',
-      name: 'consectetur pariatur eiusmod',
-      lga: 'SILGA',
-      town: 'Arizona'
-    },
-    plan: {
-      name: 'family'
-    }
+  user: {
+    firstName: 'Tolu',
+    lastName: 'James',
+    otherName: 'Doe',
+    phone: '1234313524677',
+    email: 'Tolu@gmail.com',
+    lga: 'YELGA',
+    town: 'Lurem pseum efio',
+    age: 57,
+    gender: 'male',
+    address: '781 Broome Street, Hollymead, Arizona'
+  },
+  subscription: {
+    paymentType: 'monthly',
+    price: 1500
+  },
+  hospital: {
+    type: 'public',
+    address: '781 Broome Street, Hollymead, Arizona',
+    name: 'consectetur pariatur eiusmod',
+    lga: 'SILGA',
+    town: 'Arizona'
+  },
+  plan: {
+    name: 'family'
   }
 };
 
