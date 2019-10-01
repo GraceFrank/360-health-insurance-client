@@ -4,6 +4,7 @@ const constructProfileLabels = user => {
     if (label === 'firstName') label = 'first name';
     if (label === 'lastName') label = 'last name';
     if (label === 'otherName') label = 'other name';
+    if (label === '_id') return accumulator;
     accumulator.push({ label, value });
     return accumulator;
   }, []);
