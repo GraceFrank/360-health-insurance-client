@@ -97,7 +97,7 @@ export default function Register({ inputFields, selectFields }) {
             </select>
           </div>
           <input type="checkbox" className="agree-to-terms" onChange={handleAgreement} />
-          <span>I agree to RelianceHMO's Retail plan Retail plan terms and conditions</span>
+          <span>I agree to 360 Health Insurance Retail plan terms and conditions</span>
           <CustomButton
             name={`Pay ₦${buttonAction.amount}.00 now`}
             bgColor="#a9a9a9"
